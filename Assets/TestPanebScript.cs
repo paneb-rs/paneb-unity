@@ -5,6 +5,9 @@ using UnityEngine;
 public class TestPanebScript : MonoBehaviour {
 
 	void Start () {
-		Debug.Log(PanebWrapper.super_add(7.0));
+		System.IntPtr model = PanebWrapper.test_model_create ();
+		double input = 7.0;
+		double output = PanebWrapper.test_model_compute (model, input);
+		Debug.Log(output);
 	}
 }
