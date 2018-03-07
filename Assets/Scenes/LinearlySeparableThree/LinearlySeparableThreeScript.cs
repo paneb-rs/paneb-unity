@@ -5,6 +5,7 @@ using UnityEngine;
 public class LinearlySeparableThreeScript : MonoBehaviour {
 
 	public GameObject[] spheres;
+	public Transform[] whites;
 
 	private void changeSphereMaterial(GameObject sphere, Color color) {
 		var material = new Material (Shader.Find ("Specular"));
@@ -36,7 +37,7 @@ public class LinearlySeparableThreeScript : MonoBehaviour {
 		}
 	}
 
-	private void classifyModel(System.IntPtr weights) {
+	/*private void classifyModel(System.IntPtr weights) {
 		foreach (var sphere in spheres) {
 			var transform = sphere.GetComponent<Transform> ();
 
@@ -46,11 +47,17 @@ public class LinearlySeparableThreeScript : MonoBehaviour {
 			int actual = PanebWrapper.classification_compute (weights, x, z);
 			Debug.Log ("Classified [" + x + "," + z + "] = " + actual);
 
-			if (actual == 1) {
-				changeSphereMaterial (sphere, Color.red);
-			} else {
-				changeSphereMaterial (sphere, Color.blue);
-			}
+			moveWhites (actual);
+		}
+	}*/
+
+	private void moveWhites(System.IntPtr weights) {
+		foreach (var white in whites) {
+			var x = white.position.x;
+			var z = white.position.z;
+
+			int direction = PanebWrapper.classification_compute (weights, x, z);
+			white.position += direction == 1 ? Vector3.up : Vector3.down;
 		}
 	}
 
@@ -60,6 +67,6 @@ public class LinearlySeparableThreeScript : MonoBehaviour {
 		printWeights (weights);
 		trainModel (weights);
 		printWeights (weights);
-		classifyModel (weights);
+		moveWhites (weights);
 	}
 }
