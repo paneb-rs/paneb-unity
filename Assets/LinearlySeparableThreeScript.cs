@@ -4,13 +4,34 @@ using UnityEngine;
 
 public class LinearlySeparableThreeScript : MonoBehaviour {
 
-	public Transform[] spheres;
+	public GameObject[] spheres;
 
-	// Use this for initialization
 	void Start () {
-		foreach(var sphere in spheres) {
-			Debug.Log(sphere.position.x);
-			Debug.Log(sphere.position.z);
-		}	
+		var weights = PanebWrapper.classification_create ();
+
+		printWeights (weights);
+
+		for (int i = 0; i < 9001; ++i) {
+			foreach(var sphere in spheres) {
+				var renderer = sphere.GetComponent<Renderer> ();
+				var transform = sphere.GetComponent<Transform> ();
+
+				var x = transform.position.x;
+				var y = transform.position.y;
+				var expected = (int) transform.position.y;
+
+				PanebWrapper.classification_train (weights, x, y, expected);
+			}
+		}
+
+		printWeights (weights);
+	}
+
+	void printWeights(System.IntPtr weights) {
+		Debug.Log (
+			PanebWrapper.classification_weights(weights, 0) + "; " +
+			PanebWrapper.classification_weights(weights, 1) + "; " +
+			PanebWrapper.classification_weights(weights, 2)
+		);
 	}
 }
