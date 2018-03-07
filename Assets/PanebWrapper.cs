@@ -9,6 +9,6 @@ public static class PanebWrapper {
 	[DllImport("paneb")] public static extern System.IntPtr classification_train(System.IntPtr weights, double x, double y, int expected);
 	[DllImport("paneb")] public static extern int classification_compute(System.IntPtr weights, double x, double y);
 
-	[DllImport("paneb")] public static extern System.IntPtr regression_create(int rows, int columns, double[] inputs);
-	[DllImport("paneb")] public static extern System.IntPtr regression_train(System.IntPtr inputMatrix, int rows, int columns, double[] outputs);
+	[DllImport("paneb")] public static extern System.IntPtr regression_compute(int inputRows, int inputColumns, double[] inputs, int outputRows, int outputColumns, double[] outputs);
+	[DllImport("paneb")] public static extern double regression_point(System.IntPtr weights, int inputsSize, double[] inputs);
 }

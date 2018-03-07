@@ -69,21 +69,27 @@ public class LinearlySeparableThreeScript : MonoBehaviour {
 		return outputs.ToArray();
 	}
 
-	void Start () {
-		/// Classification
-		var weights = PanebWrapper.classification_create ();
+	private void regressionMoveWhites(System.IntPtr weights) {
+		foreach (var white in whites) {
+			var x = white.position.x;
+			var z = white.position.z;
 
-		classificationPrintWeights (weights);
+			double result = PanebWrapper.regression_point (weights, 2, new double[] {x, z});
+			white.position += Vector3.up * (float) result;
+		}
+	}
+
+	void Start () {
+		/*// Classification
+		var weights = PanebWrapper.classification_create ();
 		classificationTrainModel (weights);
-		classificationPrintWeights (weights);
 		classificationMoveWhites (weights);
 
 		/*/ // Regression
 		var inputs = regressionInputs();
 		var outputs = regressionOutputs();
-
-		var inputMatrix = PanebWrapper.regression_create(spheres.Length, 3, inputs);
-		var weightsMatrix = PanebWrapper.regression_train(inputMatrix, spheres.Length, 1, outputs);
+		var weights = PanebWrapper.regression_compute(spheres.Length, 3, inputs, spheres.Length, 1, outputs);
+		regressionMoveWhites (weights);
 		//*/
 	}
 }
