@@ -6,6 +6,8 @@ public class LinearlySeparableThreeScript : MonoBehaviour {
 
 	public Transform[] spheres;
 
+	public Transform[] white;
+
 	// Use this for initialization
 	void Start () {
 		foreach(var sphere in spheres) {
