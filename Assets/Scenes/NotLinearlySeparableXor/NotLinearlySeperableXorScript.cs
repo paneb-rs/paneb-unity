@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NotLinearlySeparableCrossScript : MonoBehaviour {
+public class NotLinearlySeperableXorScript : MonoBehaviour {
 
 	public Transform[] spheres;
+	public Transform[] whites;
 
 	// Use this for initialization
 	void Start () {
-
+		
 	}
 }
