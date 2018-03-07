@@ -40,7 +40,33 @@ public class LinearlySeparableThreeScript : MonoBehaviour {
 	}
 
 	private double[] regressionInputs() {
-		spheres
+		List<double> inputs = new List<double>();
+
+		foreach(var sphere in spheres) {
+			var transform = sphere.GetComponent<Transform> ();
+
+			var x = transform.position.x;
+			var z = transform.position.z;
+
+			inputs.Add(1.0);
+			inputs.Add(x);
+			inputs.Add(z);
+		}
+
+		return inputs.ToArray();
+	}
+
+	private double[] regressionOutputs() {
+		List<double> outputs = new List<double>();
+
+		foreach(var sphere in spheres) {
+			var transform = sphere.GetComponent<Transform> ();
+
+			var y = transform.position.y;
+			outputs.Add(y);
+		}
+
+		return outputs.ToArray();
 	}
 
 	void Start () {
@@ -54,7 +80,10 @@ public class LinearlySeparableThreeScript : MonoBehaviour {
 
 		/*/ // Regression
 		var inputs = regressionInputs();
-		var model = PanebWrapper.regression_create(spheres.Length, 3, inputs);
+		var outputs = regressionOutputs();
+
+		var inputMatrix = PanebWrapper.regression_create(spheres.Length, 3, inputs);
+		var weightsMatrix = PanebWrapper.regression_train(inputMatrix, spheres.Length, 1, outputs);
 		//*/
 	}
 }
