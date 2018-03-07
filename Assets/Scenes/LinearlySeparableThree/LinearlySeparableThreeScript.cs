@@ -70,7 +70,7 @@ public class LinearlySeparableThreeScript : MonoBehaviour {
 	}
 
 	void Start () {
-		/* // Classification
+		/// Classification
 		var weights = PanebWrapper.classification_create ();
 
 		classificationPrintWeights (weights);
