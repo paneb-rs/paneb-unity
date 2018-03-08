@@ -75,6 +75,7 @@ public class LinearlySeparableThreeScript : MonoBehaviour {
 			var z = white.position.z;
 
 			double result = PanebWrapper.regression_point (weights, 2, new double[] {x, z});
+            Debug.Log("[" + x + ", "+ z + "] = " + result);
 			white.position += Vector3.up * (float) result;
 		}
 	}
@@ -89,7 +90,7 @@ public class LinearlySeparableThreeScript : MonoBehaviour {
 		var inputs = regressionInputs();
 		var outputs = regressionOutputs();
 		var weights = PanebWrapper.regression_compute(spheres.Length, 3, inputs, spheres.Length, 1, outputs);
-		regressionMoveWhites (weights);
+        regressionMoveWhites (weights);
 		//*/
 	}
 }
