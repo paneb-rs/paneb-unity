@@ -1216,6 +1216,7 @@ GameObject:
   - component: {fileID: 320770162}
   - component: {fileID: 320770161}
   - component: {fileID: 320770160}
+  - component: {fileID: 320770165}
   - component: {fileID: 320770164}
   m_Layer: 0
   m_Name: Main Camera
@@ -1293,9 +1294,146 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 320770159}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08910a8cc19042d4ab1f40e52a26ab1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spheres:
+  - {fileID: 2048387034}
+  - {fileID: 1713333937}
+  - {fileID: 1706843559}
+  whites:
+  - {fileID: 1218175765}
+  - {fileID: 1284713557}
+  - {fileID: 402526858}
+  - {fileID: 1791837491}
+  - {fileID: 1146624652}
+  - {fileID: 1197709990}
+  - {fileID: 887698664}
+  - {fileID: 1105063108}
+  - {fileID: 2067730666}
+  - {fileID: 2138145038}
+  - {fileID: 977924386}
+  - {fileID: 1825149228}
+  - {fileID: 1629169169}
+  - {fileID: 1675834308}
+  - {fileID: 1434644847}
+  - {fileID: 1316513014}
+  - {fileID: 98624326}
+  - {fileID: 1328496392}
+  - {fileID: 1523066159}
+  - {fileID: 1198625884}
+  - {fileID: 2093406311}
+  - {fileID: 1126877977}
+  - {fileID: 2102136084}
+  - {fileID: 41369472}
+  - {fileID: 332759247}
+  - {fileID: 823257393}
+  - {fileID: 1299596872}
+  - {fileID: 1032160983}
+  - {fileID: 1097625953}
+  - {fileID: 2079391086}
+  - {fileID: 1457839335}
+  - {fileID: 1703092941}
+  - {fileID: 1888048640}
+  - {fileID: 1894496859}
+  - {fileID: 1038206656}
+  - {fileID: 1588160214}
+  - {fileID: 2109713337}
+  - {fileID: 1314944255}
+  - {fileID: 896190511}
+  - {fileID: 1640517547}
+  - {fileID: 1547561516}
+  - {fileID: 1009318714}
+  - {fileID: 891039068}
+  - {fileID: 1107269362}
+  - {fileID: 359576428}
+  - {fileID: 181431716}
+  - {fileID: 1727155377}
+  - {fileID: 1771551325}
+  - {fileID: 198352496}
+  - {fileID: 1398272804}
+  - {fileID: 715434459}
+  - {fileID: 1232431697}
+  - {fileID: 302602912}
+  - {fileID: 1386575338}
+  - {fileID: 1207208160}
+  - {fileID: 642759945}
+  - {fileID: 2137514363}
+  - {fileID: 1762625897}
+  - {fileID: 1288020975}
+  - {fileID: 2078560944}
+  - {fileID: 136567724}
+  - {fileID: 1829313758}
+  - {fileID: 881881303}
+  - {fileID: 2102512816}
+  - {fileID: 1751234010}
+  - {fileID: 1893020325}
+  - {fileID: 1465109362}
+  - {fileID: 1449687483}
+  - {fileID: 251848140}
+  - {fileID: 821226107}
+  - {fileID: 1353327114}
+  - {fileID: 1283634725}
+  - {fileID: 1555852923}
+  - {fileID: 82614930}
+  - {fileID: 1517869474}
+  - {fileID: 147000752}
+  - {fileID: 493403164}
+  - {fileID: 1033661153}
+  - {fileID: 1049468042}
+  - {fileID: 1679701001}
+  - {fileID: 1488915815}
+  - {fileID: 1254701949}
+  - {fileID: 1315083649}
+  - {fileID: 585355218}
+  - {fileID: 1379408796}
+  - {fileID: 1290340548}
+  - {fileID: 1450660704}
+  - {fileID: 1912624488}
+  - {fileID: 610751764}
+  - {fileID: 2112683291}
+  - {fileID: 1389282215}
+  - {fileID: 752836049}
+  - {fileID: 431496547}
+  - {fileID: 927140296}
+  - {fileID: 84896789}
+  - {fileID: 1817915704}
+  - {fileID: 1843947448}
+  - {fileID: 426074995}
+  - {fileID: 1922266567}
+  - {fileID: 1677478360}
+  - {fileID: 961132045}
+  - {fileID: 2037534191}
+  - {fileID: 1846537786}
+  - {fileID: 2115276647}
+  - {fileID: 1287755591}
+  - {fileID: 2001470684}
+  - {fileID: 933557750}
+  - {fileID: 517310034}
+  - {fileID: 1554834269}
+  - {fileID: 1645500293}
+  - {fileID: 1537100002}
+  - {fileID: 1238461787}
+  - {fileID: 108465720}
+  - {fileID: 1657503503}
+  - {fileID: 156459462}
+  - {fileID: 175682091}
+  - {fileID: 1899146583}
+  - {fileID: 1943208995}
+  - {fileID: 1417341508}
+  - {fileID: 1245065462}
+  - {fileID: 608486630}
+--- !u!114 &320770165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 320770159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10b83695d187f40679048650470f5856, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d2f1d1e4198b794d86444c4387a6983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spheres:
