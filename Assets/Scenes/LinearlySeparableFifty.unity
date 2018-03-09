@@ -5148,6 +5148,7 @@ GameObject:
   - component: {fileID: 771840658}
   - component: {fileID: 771840657}
   - component: {fileID: 771840659}
+  - component: {fileID: 771840660}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5408,7 +5409,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 771840652}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d2f1d1e4198b794d86444c4387a6983, type: 3}
   m_Name: 
@@ -5597,7 +5598,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d6bf5a309c949a29d7707403599eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csv: {fileID: 4900000, guid: 33227934a85454b3dbe6a374f48f1f46, type: 3}
+  trainingCsv: {fileID: 4900000, guid: 81e40ef77802fe346ae4ff94273f1d05, type: 3}
+  testCsv: {fileID: 4900000, guid: c7aa355355c443e4db5e6c1a1ac600fd, type: 3}
+--- !u!114 &771840660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 771840652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe1dbbd994e8674e97fbaba32b3b56f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainingCsv: {fileID: 4900000, guid: 81e40ef77802fe346ae4ff94273f1d05, type: 3}
+  testCsv: {fileID: 4900000, guid: c7aa355355c443e4db5e6c1a1ac600fd, type: 3}
 --- !u!1 &782287482
 GameObject:
   m_ObjectHideFlags: 0

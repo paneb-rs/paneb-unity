@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-public class DatasetClassification : MonoBehaviour {
+public class DatasetRegression : MonoBehaviour
+{
 
     public TextAsset trainingCsv;
     public TextAsset testCsv;
@@ -34,31 +35,38 @@ public class DatasetClassification : MonoBehaviour {
         }
     }
 
-    private void TrainModel(System.IntPtr model, double[,] values)
+    private System.IntPtr CreateModel(double[,] values)
     {
         var nbInputs = values.GetUpperBound(0) - 1;
 
+        var nbInputRows = values.GetUpperBound(1);
+        var nbInputCols = values.GetUpperBound(0);
+        double[] inputs = new double[nbInputRows * nbInputCols];
+        var inputIterator = 0;
+
+        var nbOutputRows = values.GetUpperBound(1);
+        var nbOutputCols = 1;
+        double[] outputs = new double[nbOutputRows * nbOutputCols];
+        var outputIterator = 0;
+
         for (int y = 0; y < values.GetUpperBound(1); y++)
         {
-            double[] inputs = new double[nbInputs];
-            int expected = 0;
-
             for (int x = 0; x < values.GetUpperBound(0); x++)
             {
                 var value = values[x, y];
 
                 if (x == nbInputs)
                 {
-                    expected = Convert.ToInt32(value);
+                    outputs[outputIterator++] = value;
                 }
                 else
                 {
-                    inputs[x] = value;
+                    inputs[inputIterator++] = value;
                 }
             }
-
-            PanebWrapper.classification_train(model, inputs.Length, inputs, expected);
         }
+
+        return PanebWrapper.regression_compute(nbInputRows, nbInputCols, inputs, nbOutputRows, nbOutputRows, outputs);
     }
 
     private void ComputeInputs(System.IntPtr model, double[,] values)
@@ -68,7 +76,7 @@ public class DatasetClassification : MonoBehaviour {
         for (int y = 0; y < values.GetUpperBound(1); y++)
         {
             double[] inputs = new double[nbInputs];
-            int expected = 0;
+            double expected = 0.0;
 
             for (int x = 0; x < values.GetUpperBound(0); x++)
             {
@@ -76,7 +84,7 @@ public class DatasetClassification : MonoBehaviour {
 
                 if (x == nbInputs)
                 {
-                    expected = Convert.ToInt32(value);
+                    expected = value;
                 }
                 else
                 {
@@ -84,12 +92,12 @@ public class DatasetClassification : MonoBehaviour {
                 }
             }
 
-            int result = PanebWrapper.classification_compute(model, inputs.Length, inputs);
+            double result = PanebWrapper.regression_point(model, inputs.Length, inputs);
             Debug.Log("Expected: " + expected + "; Result = " + result);
         }
     }
 
-    void Start ()
+    void Start()
     {
         string[,] csvTraining = CSVReader.SplitCsvGrid(trainingCsv.text);
         double[,] trainingValues = StringArrayToDouble(csvTraining);
@@ -97,10 +105,7 @@ public class DatasetClassification : MonoBehaviour {
         string[,] csvTest = CSVReader.SplitCsvGrid(testCsv.text);
         double[,] testValues = StringArrayToDouble(csvTest);
 
-        var nbWeights = trainingValues.GetUpperBound(0);
-        var model = PanebWrapper.classification_create(nbWeights);
-
-        TrainModel(model, trainingValues);
-        ComputeInputs(model, testValues);
+        //var model = CreateModel(trainingValues);
+        //ComputeInputs(model, testValues);
     }
 }
