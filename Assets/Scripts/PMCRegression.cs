@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class PMC : MonoBehaviour {
+public class PMCRegression : MonoBehaviour
+{
 
     private static int NB_LAYERS = 3;
     private static int[] LAYERS = new int[] { 2, 3, 1 };
@@ -21,7 +22,7 @@ public class PMC : MonoBehaviour {
 
                 var expected = transform.position.y;
 
-                PanebWrapper.pmc_train(NB_LAYERS, LAYERS, model, 2, new double[] { x, z }, 1, new double[] { expected });
+                PanebWrapper.pmc_train(NB_LAYERS, LAYERS, model, 2, new double[] { x, z }, 1, new double[] { expected }, 1);
             }
         }
     }
@@ -33,7 +34,7 @@ public class PMC : MonoBehaviour {
             var x = white.position.x;
             var z = white.position.z;
 
-            System.IntPtr outputs = PanebWrapper.pmc_compute(NB_LAYERS, LAYERS, model, 2, new double[] { x, z });
+            System.IntPtr outputs = PanebWrapper.pmc_compute(NB_LAYERS, LAYERS, model, 2, new double[] { x, z }, 1);
             double value = PanebWrapper.pmc_value(outputs, 0);
 
             white.position += value > 0.0 ? Vector3.up : Vector3.down;
