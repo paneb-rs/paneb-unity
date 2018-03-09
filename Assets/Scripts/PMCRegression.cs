@@ -37,7 +37,7 @@ public class PMCRegression : MonoBehaviour
             System.IntPtr outputs = PanebWrapper.pmc_compute(NB_LAYERS, LAYERS, model, 2, new double[] { x, z }, 1);
             double value = PanebWrapper.pmc_value(outputs, 0);
 
-            white.position += value > 0.0 ? Vector3.up : Vector3.down;
+            white.position += Vector3.up * (float)value;
         }
     }
 
