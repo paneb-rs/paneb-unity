@@ -4685,6 +4685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d45056a48a0fea4589328d8825774e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nbLayers: 3
+  layers: 020000000300000001000000
   spheres:
   - {fileID: 1155768301}
   - {fileID: 1846793291}
@@ -4823,6 +4825,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94082d14a37ba794d874289d7248ce3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nbLayers: 3
+  layers: 020000000300000001000000
   spheres:
   - {fileID: 1155768301}
   - {fileID: 1846793291}

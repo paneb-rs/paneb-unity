@@ -3,8 +3,8 @@
 public class PMCRegression : MonoBehaviour
 {
 
-    private static int NB_LAYERS = 3;
-    private static int[] LAYERS = new int[] { 2, 3, 1 };
+    public int nbLayers;
+    public int[] layers;
 
     public GameObject[] spheres;
     public Transform[] whites;
@@ -22,7 +22,7 @@ public class PMCRegression : MonoBehaviour
 
                 var expected = transform.position.y;
 
-                PanebWrapper.pmc_train(NB_LAYERS, LAYERS, model, 2, new double[] { x, z }, 1, new double[] { expected }, 1);
+                PanebWrapper.pmc_train(nbLayers, layers, model, 2, new double[] { x, z }, 1, new double[] { expected }, 1);
             }
         }
     }
@@ -34,7 +34,7 @@ public class PMCRegression : MonoBehaviour
             var x = white.position.x;
             var z = white.position.z;
 
-            System.IntPtr outputs = PanebWrapper.pmc_compute(NB_LAYERS, LAYERS, model, 2, new double[] { x, z }, 1);
+            System.IntPtr outputs = PanebWrapper.pmc_compute(nbLayers, layers, model, 2, new double[] { x, z }, 1);
             double value = PanebWrapper.pmc_value(outputs, 0);
 
             white.position += Vector3.up * (float)value;
@@ -43,7 +43,7 @@ public class PMCRegression : MonoBehaviour
 
     void Start()
     {
-        var model = PanebWrapper.pmc_create(NB_LAYERS, LAYERS);
+        var model = PanebWrapper.pmc_create(nbLayers, layers);
         TrainModel(model);
         MoveAxis(model);
     }
