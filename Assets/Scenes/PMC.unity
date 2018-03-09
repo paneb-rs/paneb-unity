@@ -4327,6 +4327,7 @@ GameObject:
   - component: {fileID: 1051972779}
   - component: {fileID: 1051972778}
   - component: {fileID: 1051972780}
+  - component: {fileID: 1051972781}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4679,9 +4680,147 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1051972773}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d45056a48a0fea4589328d8825774e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spheres:
+  - {fileID: 1155768301}
+  - {fileID: 1846793291}
+  - {fileID: 736513413}
+  - {fileID: 85561023}
+  whites:
+  - {fileID: 1614367852}
+  - {fileID: 1204837410}
+  - {fileID: 612456991}
+  - {fileID: 995873759}
+  - {fileID: 1207699038}
+  - {fileID: 2079524921}
+  - {fileID: 1763625828}
+  - {fileID: 451729132}
+  - {fileID: 166111911}
+  - {fileID: 984942923}
+  - {fileID: 234872798}
+  - {fileID: 1484352519}
+  - {fileID: 742646890}
+  - {fileID: 1554868748}
+  - {fileID: 30053169}
+  - {fileID: 1834169266}
+  - {fileID: 1480919924}
+  - {fileID: 2019863507}
+  - {fileID: 2129809653}
+  - {fileID: 1008808026}
+  - {fileID: 246793889}
+  - {fileID: 615793800}
+  - {fileID: 1482903113}
+  - {fileID: 2007544272}
+  - {fileID: 533114294}
+  - {fileID: 1018692219}
+  - {fileID: 1368378749}
+  - {fileID: 998928787}
+  - {fileID: 565206459}
+  - {fileID: 1965236004}
+  - {fileID: 871511}
+  - {fileID: 1004808346}
+  - {fileID: 35314604}
+  - {fileID: 387733758}
+  - {fileID: 1281286556}
+  - {fileID: 379972701}
+  - {fileID: 633735847}
+  - {fileID: 1179887940}
+  - {fileID: 2031384255}
+  - {fileID: 717431396}
+  - {fileID: 144534888}
+  - {fileID: 1660661861}
+  - {fileID: 607057226}
+  - {fileID: 1311607353}
+  - {fileID: 1772123547}
+  - {fileID: 1619317492}
+  - {fileID: 1221875629}
+  - {fileID: 1189882066}
+  - {fileID: 2036211301}
+  - {fileID: 1184750763}
+  - {fileID: 1719474559}
+  - {fileID: 1579955252}
+  - {fileID: 1988705975}
+  - {fileID: 1116494238}
+  - {fileID: 39274437}
+  - {fileID: 302465359}
+  - {fileID: 868286010}
+  - {fileID: 2100802952}
+  - {fileID: 895788194}
+  - {fileID: 1628966878}
+  - {fileID: 1527948669}
+  - {fileID: 444226622}
+  - {fileID: 1784139756}
+  - {fileID: 1790579028}
+  - {fileID: 2021075939}
+  - {fileID: 1753418703}
+  - {fileID: 1507534533}
+  - {fileID: 1942758015}
+  - {fileID: 1097478625}
+  - {fileID: 538062706}
+  - {fileID: 436606840}
+  - {fileID: 1475129096}
+  - {fileID: 1702920998}
+  - {fileID: 499449187}
+  - {fileID: 932140316}
+  - {fileID: 1538076284}
+  - {fileID: 1605689608}
+  - {fileID: 1516115949}
+  - {fileID: 335541823}
+  - {fileID: 445891031}
+  - {fileID: 1350218424}
+  - {fileID: 1076964154}
+  - {fileID: 2108590447}
+  - {fileID: 1492277798}
+  - {fileID: 2030910162}
+  - {fileID: 1947805563}
+  - {fileID: 829591930}
+  - {fileID: 726745584}
+  - {fileID: 1842088628}
+  - {fileID: 496703157}
+  - {fileID: 1381567520}
+  - {fileID: 1681149420}
+  - {fileID: 1877211294}
+  - {fileID: 2032588143}
+  - {fileID: 1399633640}
+  - {fileID: 1383806190}
+  - {fileID: 1079693608}
+  - {fileID: 1894465919}
+  - {fileID: 111212243}
+  - {fileID: 243504655}
+  - {fileID: 1807443793}
+  - {fileID: 74340974}
+  - {fileID: 1173994082}
+  - {fileID: 1280651524}
+  - {fileID: 1950580545}
+  - {fileID: 1508050601}
+  - {fileID: 2027831159}
+  - {fileID: 2107160287}
+  - {fileID: 347547487}
+  - {fileID: 2039157483}
+  - {fileID: 1290347858}
+  - {fileID: 732454359}
+  - {fileID: 990567274}
+  - {fileID: 2035913169}
+  - {fileID: 499073847}
+  - {fileID: 1491671931}
+  - {fileID: 1496544344}
+  - {fileID: 815432478}
+  - {fileID: 2035783821}
+  - {fileID: 371388222}
+  - {fileID: 323961344}
+--- !u!114 &1051972781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051972773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94082d14a37ba794d874289d7248ce3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spheres:

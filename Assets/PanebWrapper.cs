@@ -10,7 +10,7 @@ public static class PanebWrapper {
     [DllImport("paneb")] public static extern double regression_point(System.IntPtr weights, int inputsSize, double[] inputs);
 
     [DllImport("paneb")] public static extern System.IntPtr pmc_create(int nbLayers, int[] layers);
-    [DllImport("paneb")] public static extern System.IntPtr pmc_train(int nbLayers, int[] layers, System.IntPtr model, int inputsSize, double[] inputs, int outputsSize, double[] outputs);
-    [DllImport("paneb")] public static extern System.IntPtr pmc_compute(int nbLayers, int[] layers, System.IntPtr model, int inputsSize, double[] inputs);
+    [DllImport("paneb")] public static extern System.IntPtr pmc_train(int nbLayers, int[] layers, System.IntPtr model, int inputsSize, double[] inputs, int outputsSize, double[] outputs, int isRegression);
+    [DllImport("paneb")] public static extern System.IntPtr pmc_compute(int nbLayers, int[] layers, System.IntPtr model, int inputsSize, double[] inputs, int isRegression);
     [DllImport("paneb")] public static extern double pmc_value(System.IntPtr values, int index);
 }
