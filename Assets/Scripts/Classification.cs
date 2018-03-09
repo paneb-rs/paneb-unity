@@ -16,7 +16,7 @@ public class Classification : MonoBehaviour {
 
     private void TrainModel(System.IntPtr weights)
     {
-        for (int i = 0; i < 9001; ++i)
+        for (int i = 0; i < 300; ++i)
         {
             foreach (var sphere in spheres)
             {
@@ -26,7 +26,7 @@ public class Classification : MonoBehaviour {
                 var z = transform.position.z;
                 var expected = (int)transform.position.y;
 
-                PanebWrapper.classification_train(weights, x, z, expected);
+                PanebWrapper.classification_train(weights, 2, new double[] {x, z}, expected);
             }
         }
     }
@@ -38,14 +38,14 @@ public class Classification : MonoBehaviour {
             var x = white.position.x;
             var z = white.position.z;
 
-            int direction = PanebWrapper.classification_compute(weights, x, z);
+            int direction = PanebWrapper.classification_compute(weights, 2, new double[] {x, z});
             white.position += direction == 1 ? Vector3.up : Vector3.down;
         }
     }
 
     void Start()
     {
-		var weights = PanebWrapper.classification_create ();
+		var weights = PanebWrapper.classification_create (3);
 		TrainModel (weights);
 		MoveAxis (weights);
     }

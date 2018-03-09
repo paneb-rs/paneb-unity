@@ -20,8 +20,10 @@ public class Regression : MonoBehaviour {
             inputs.Add(1.0);
             inputs.Add(x);
             inputs.Add(z);
-        }
 
+            //Debug.Log("Inputs: " + 1.0 + ", " + x + ", " + z);
+        }
+        
         return inputs.ToArray();
     }
 
@@ -35,6 +37,8 @@ public class Regression : MonoBehaviour {
 
             var y = transform.position.y;
             outputs.Add(y);
+
+            //Debug.Log("Outputs: " + y);
         }
 
         return outputs.ToArray();
@@ -48,7 +52,7 @@ public class Regression : MonoBehaviour {
             var z = white.position.z;
 
             double result = PanebWrapper.regression_point(weights, 2, new double[] { x, z });
-            Debug.Log("[" + x + ", " + z + "] = " + result);
+            //Debug.Log("[" + x + ", " + z + "] = " + result);
 
             white.position += Vector3.up * (float)result;
         }
@@ -58,6 +62,7 @@ public class Regression : MonoBehaviour {
     {
         var inputs = ComputeInputs();
         var outputs = ComputeOutputs();
+
         var weights = PanebWrapper.regression_compute(spheres.Length, 3, inputs, spheres.Length, 1, outputs);
         MoveAxis(weights);
     }
